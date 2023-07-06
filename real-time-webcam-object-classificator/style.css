@@ -1,5 +1,4 @@
 body {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,11 +6,30 @@ body {
 }
 
 .camView {
-  width: 100%;
+  height: 100vh;
+  width: auto;
+  position: relative;
 }
 
 video {
   display: block;
-  width: 100%;
-  height: 80vh;
+  height: 100vh;
+  width: auto;
+}
+
+.camView p {
+  position: absolute;
+  padding: 5px;
+  background-color: rgba(255,111,0,0.85);
+  color: #fff;
+  border: 1px dashed rgba(255,255,255,0.7);
+  z-index: 2;
+  font-size: 12px;
+}
+
+.highlighter {
+  background: rgba(0,255,0,0,0.25);
+  border: 1px dashed #fff;
+  z-index: 1;
+  position: absolute;
 }

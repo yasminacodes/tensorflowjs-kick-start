@@ -36,17 +36,19 @@ function predictWebcam() {
       }
       children.splice(0)
 
+      const scaleFactor = window.innerHeight / video.videoHeight;
+
       for (let n = 0; n < predictions.length; n++) {
         if (predictions[n].score > 0.06) {
           const p = document.createElement('p')
           p.innerText = predictions[n].class + ' - with ' + Math.round(parseFloat(predictions[n].score) * 100) + '% confidence.';
-          p.style = 'margin-left: ' + predictions[n].bbox[0] + 'px; margin-top: ' + (predictions[n].bbox[1] - 10) + 'px; width: ' + (predictions[n].bbox[2] - 10) + 'px; top: 0; left: 0;'
+          p.style = 'margin-left: ' + predictions[n].bbox[0]*scaleFactor + 'px; margin-top: ' + (predictions[n].bbox[1]*scaleFactor - 10) + 'px; width: ' + (predictions[n].bbox[2]*scaleFactor - 10) + 'px; top: 0; left: 0;'
 
           const highlighter = document.createElement("div")
           highlighter.setAttribute("class", "highlighter")
-          highlighter.style = 'left: ' + predictions[n].bbox[0] + 'px; top: ' + predictions[n].bbox[1] + 'px; width: ' +
-            predictions[n].bbox[2] + 'px; height: ' +
-            predictions[n].bbox[3] + 'px;';
+          highlighter.style = 'left: ' + predictions[n].bbox[0]*scaleFactor + 'px; top: ' + predictions[n].bbox[1]*scaleFactor + 'px; width: ' +
+            predictions[n].bbox[2]*scaleFactor + 'px; height: ' +
+            predictions[n].bbox[3]*scaleFactor + 'px;';
           liveView.appendChild(highlighter);
           liveView.appendChild(p)
           children.push(highlighter)
@@ -56,9 +58,4 @@ function predictWebcam() {
 
     })
   }, 250)
-}
-
-
-function setup() {
-  canvas(window.innerWidth, window.innerHeight);
 }
