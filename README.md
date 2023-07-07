@@ -8,4 +8,5 @@ All these projects run with no need to install any libraries or third party prog
 More projects coming soon!
 
 ## Projects for begginers
-* Real time object detection with your webcam
+* Real time object classificator with your webcam
+* AR filter with face recognition
