@@ -1,5 +1,5 @@
 const video = document.getElementById('webcam');
-const liveView = document.getElementById('liveView');
+const liveView = document.getElementById('live-view');
 
 function getUserMediaSupported() {
   return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
@@ -20,13 +20,13 @@ navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
 })
 
 
-var model = undefined
+let model = undefined
 
 cocoSsd.load().then(function (loadedModel) {
   model = loadedModel
 })
 
-var children = []
+let children = []
 
 function predictWebcam() {
   let timerInterval = setInterval(() => {

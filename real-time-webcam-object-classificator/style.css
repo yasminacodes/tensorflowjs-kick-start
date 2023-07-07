@@ -5,7 +5,7 @@ body {
   width: 100%;
 }
 
-.camView {
+.cam-view {
   height: 100vh;
   width: auto;
   position: relative;
@@ -17,7 +17,7 @@ video {
   width: auto;
 }
 
-.camView p {
+.cam-view p {
   position: absolute;
   padding: 5px;
   background-color: rgba(255,111,0,0.85);
